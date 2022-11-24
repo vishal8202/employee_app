@@ -29,8 +29,18 @@ while True:
         mydb.commit()
     elif(choice==2):
         print('view student')
+        sql = 'SELECT * FROM `emplyees`'
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        for i in result:
+            print(i)
     elif(choice==3):
         print('search a student')
+        empcode = input('enter the empcode of the employee to be searched : ')
+        sql = 'SELECT `id`, `empcode`, `empName`, `Designation`, `Salary`, `companyName`, `phoneNumber`, `EmailId`, `Password` FROM `emplyees` WHERE `empcode`='+empcode
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        print(result)
     elif(choice==4):
         print('update the student')
     elif(choice==5):
